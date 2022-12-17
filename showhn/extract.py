@@ -59,7 +59,7 @@ class ShowHN(Manager):
 
     def get_comments(self, data):
 
-        return [obj["descendants"] for obj in data]
+        return [obj["comments"] for obj in data]
 
     def get_scores(self, data):
 
@@ -67,4 +67,4 @@ class ShowHN(Manager):
 
     def get_hackers(self, data):
 
-        return [obj["by"] for obj in data]    
+        return [obj["hacker"] for obj in data]    
