@@ -1,5 +1,5 @@
-from src.settings import Manager
-from src.request import RequestClient
+from settings import Manager
+from request import RequestClient
 
 
 import pprint as pp

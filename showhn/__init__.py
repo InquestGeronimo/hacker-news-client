@@ -1,6 +1,6 @@
-from src.extraction import HackerNewsHandler
-from src.request import RequestClient
-from src.settings import post_ids_url
+from .extraction import HackerNewsHandler
+from .request import RequestClient
+from .settings import post_ids_url
 from rich.console import Console
 console = Console()
 
