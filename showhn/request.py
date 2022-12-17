@@ -1,6 +1,6 @@
 import requests
 
-class RequestClient:
+class HTTPClient:
 
     def __init__(self, url):
         self.url = url

@@ -7,6 +7,6 @@ setup(
     url="https://github.com/InquestGeronimo/showHN",
     author="zeroshot",
     license="apache 2",
-    packages=["src"],
+    packages=["showhn"],
     zip_safe=False
 )

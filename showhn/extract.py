@@ -1,5 +1,5 @@
 from showhn.utils import Manager
-from showhn.request import RequestClient
+from showhn.request import HTTPClient
 import pprint as pp
 
 
@@ -10,11 +10,11 @@ class ShowHN(Manager):
 
     def get_posts(self):
 
-        uids = RequestClient(self.post_ids_url) 
+        uids = HTTPClient(self.post_ids_url)()
 
         post_data = []
         for uid in uids:
-            data = RequestClient(self.get_post(uid))()
+            data = HTTPClient(self.get_post(uid))()
 
             try:
                 post_data.append(
