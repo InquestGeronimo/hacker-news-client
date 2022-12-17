@@ -1,20 +1,26 @@
-from settings import post_ids_url, get_post_data # this line used for testing only
-from request import RequestClient
-import pprint as pp # this line used for testing only
+from src.settings import Manager
+from src.request import RequestClient
 
 
-class HackerNewsHandler:
+import pprint as pp
 
-    def get_post_data(self, uids):  
-    
+
+class HackerNewsHandler(Manager):
+    def __init__(self):
+
+        super().__init__()
+
+    def get_post_data(self, uids): 
+
         post_data = []
         for uid in uids:
-            data = RequestClient(get_post_data(uid))()
+            data = RequestClient(self.get_post(uid))()
 
             try:
                 post_data.append(
                     {
                         "id":        uid,
+                        "url":       data["url"],
                         "title":     data["title"],
                         "text":      data["text"][:135] + "...",
                         "comments":  data["descendants"],
@@ -26,10 +32,10 @@ class HackerNewsHandler:
 
             except KeyError:
                 continue
-        # pp.pprint(post_data) # this line used for testing only
+
+        pp.pprint(post_data) # testing only
+
         # sorts dictionary by 'score' in descending order
         return sorted(post_data, key=lambda d: d["score"], reverse=True)
 
-posts = RequestClient(post_ids_url)
-HN = HackerNewsHandler()
-post_ids = HN.get_post_data(posts())
+
