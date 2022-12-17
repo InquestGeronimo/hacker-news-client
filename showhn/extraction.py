@@ -1,16 +1,16 @@
-from settings import Manager
-from request import RequestClient
-
-
+from showhn.utils import Manager
+from showhn.request import RequestClient
 import pprint as pp
 
 
-class HackerNewsHandler(Manager):
+class ShowHN(Manager):
     def __init__(self):
 
         super().__init__()
 
-    def get_post_data(self, uids): 
+    def get_posts(self):
+
+        uids = RequestClient(self.post_ids_url) 
 
         post_data = []
         for uid in uids:
@@ -37,5 +37,3 @@ class HackerNewsHandler(Manager):
 
         # sorts dictionary by 'score' in descending order
         return sorted(post_data, key=lambda d: d["score"], reverse=True)
-
-
