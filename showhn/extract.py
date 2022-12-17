@@ -65,6 +65,10 @@ class ShowHN(Manager):
 
         return [obj["score"] for obj in data]
 
+    def get_times(self, data):
+
+        return [obj["time"] for obj in data]
+
     def get_hackers(self, data):
 
         return [obj["hacker"] for obj in data]    
