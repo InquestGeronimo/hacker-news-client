@@ -1,11 +1,22 @@
-import requests
+from requests_cache import CachedSession
 
-class HTTPClient:
+session = CachedSession(
+    cache_name="hacker-news-api", 
+    backend="filesystem", 
+    use_cache_dir=True
+)
 
-    def __init__(self, url):
+class HTTPClient():
+
+    def __init__(self, url, disable=False):
         self.url = url
+        self.disable_cache = disable
 
     def __call__(self):
         
-        response = requests.get(self.url)
-        return response.json()
+        if self.disable_cache:
+            with session.cache_disabled():
+                return session.get(self.url).json()
+
+        else:
+            return session.get(self.url).json()
