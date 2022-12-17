@@ -8,9 +8,9 @@ session = CachedSession(
 
 class HTTPClient():
 
-    def __init__(self, url, disable=False):
+    def __init__(self, url, disable_cache=False):
         self.url = url
-        self.disable_cache = disable
+        self.disable_cache = disable_cache
 
     def __call__(self):
         
