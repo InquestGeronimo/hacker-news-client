@@ -8,14 +8,12 @@ class ShowHN(Manager):
     def __init__(
         self, 
         descending: bool = False, 
-        disable_cache: bool = False, 
-        pretty: bool = True
+        disable_cache: bool = False,
     ):
 
         super().__init__()
         self.descending = descending
         self.disable_cache = disable_cache
-        self.pretty = pretty
         
     def get_payload(self) -> List[Dict]:
 
@@ -30,22 +28,21 @@ class ShowHN(Manager):
                     {
                         "id":        uid,
                         "title":     data["title"],
-                        "text":      data["text"][:135] + "...",
+                        "text":      data["text"],
                         "url":       data["url"],
                         "comments":  data["descendants"],
                         "score":     data["score"],
                         "time":      data["time"],
-                        "hacker":    data["by"]
+                        "author":    data["by"]
                     }
                 )
 
             except KeyError:
                 continue
 
-        if self.pretty:
-            return pprint.pformat(sorted(payload, key=lambda d: d["score"], reverse=self.descending))
-        else:
+            # sorts dict by "score"
             return sorted(payload, key=lambda d: d["score"], reverse=self.descending)
+
 
     def get_item(self, item, data):
 
