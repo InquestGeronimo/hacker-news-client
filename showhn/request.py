@@ -1,9 +1,10 @@
 from requests_cache import CachedSession
+from showhn.utils import Manager
 
 session = CachedSession(
-    cache_name="hacker-news-api", 
-    backend="filesystem", 
-    use_cache_dir=True
+    cache_name=Manager.cache_name, 
+    backend=Manager.backend, 
+    use_cache_dir=Manager.use_cache_dir
 )
 
 class HTTPClient:

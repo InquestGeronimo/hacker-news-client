@@ -2,23 +2,28 @@ from showhn.utils import Manager
 from showhn.request import HTTPClient
 
 from typing import List, Dict
+import pprint
 
 class ShowHN(Manager):
-    def __init__(self):
+    def __init__(
+        self, 
+        descending: bool = False, 
+        disable_cache: bool = False, 
+        pretty: bool = True
+    ):
 
         super().__init__()
+        self.descending = descending
+        self.disable_cache = disable_cache
+        self.pretty = pretty
         
-    def get_payload(
-        self, 
-        descending: bool=False, 
-        disable_cache: bool=False
-    ) -> List[Dict]:
+    def get_payload(self) -> List[Dict]:
 
-        uids = HTTPClient(self.post_ids_url, disable_cache)()
+        uids = HTTPClient(self.post_ids_url, self.disable_cache)()
 
         payload = []
         for uid in uids:
-            data = HTTPClient(self.get_post(uid), disable_cache)()
+            data = HTTPClient(self.get_post(uid), self.disable_cache)()
 
             try:
                 payload.append(
@@ -37,38 +42,11 @@ class ShowHN(Manager):
             except KeyError:
                 continue
 
-        """ sorts dictionary by 'score' in descending order"""
-        return sorted(payload, key=lambda d: d["score"], reverse=descending)
+        if self.pretty:
+            return pprint.pformat(sorted(payload, key=lambda d: d["score"], reverse=self.descending))
+        else:
+            return sorted(payload, key=lambda d: d["score"], reverse=self.descending)
 
-    
-    def get_ids(self, data):
+    def get_item(self, item, data):
 
-        return [obj["id"] for obj in data]    
-
-    def get_titles(self, data):
-
-        return [obj["title"] for obj in data]
-
-    def get_text(self, data):
-
-        return [obj["text"] for obj in data]
-
-    def get_urls(self, data):
-
-        return [obj["url"] for obj in data]
-
-    def get_comments(self, data):
-
-        return [obj["comments"] for obj in data]
-
-    def get_scores(self, data):
-
-        return [obj["score"] for obj in data]
-
-    def get_times(self, data):
-
-        return [obj["time"] for obj in data]
-
-    def get_hackers(self, data):
-
-        return [obj["hacker"] for obj in data]    
+        return [obj[item] for obj in data]
