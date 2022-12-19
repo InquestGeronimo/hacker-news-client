@@ -6,7 +6,7 @@ session = CachedSession(
     use_cache_dir=True
 )
 
-class HTTPClient():
+class HTTPClient:
 
     def __init__(self, url, disable_cache=False):
         self.url = url
