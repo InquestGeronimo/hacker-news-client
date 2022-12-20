@@ -1,3 +1,3 @@
-# HackerNewsClient
+# Hacker News Client
 
 ...
