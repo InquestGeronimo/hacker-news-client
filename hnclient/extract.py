@@ -2,8 +2,10 @@ from hnclient.utils import Manager
 from hnclient.request import HTTPClient
 
 from typing import List, Dict
+import json
 
 class HackerNewsClient(Manager):
+
     def __init__(
         self, 
         descending: bool = False, 
@@ -14,10 +16,11 @@ class HackerNewsClient(Manager):
         self.descending = descending
         self.disable_cache = disable_cache
         
-    def get_payload(self) -> List[Dict]:
+    def get_stories(self, story="top") -> List[Dict]:
 
-        uids = HTTPClient(self.post_ids_url, self.disable_cache)()
+        uids = HTTPClient(self.post_ids_url(story), self.disable_cache)()
 
+        
         payload = []
         for uid in uids:
             data = HTTPClient(self.get_post(uid), self.disable_cache)()
@@ -39,10 +42,9 @@ class HackerNewsClient(Manager):
             except KeyError:
                 continue
 
-            # sorts dict by "score"
-            return sorted(payload, key=lambda d: d["score"], reverse=self.descending)
+        # sorts dict by "score"
+        return sorted(payload, key=lambda d: d["score"], reverse=self.descending)
 
-
-    def get_item(self, item, data):
+    def get_item(self, item:str, data:List[Dict]) -> List:
 
         return [obj[item] for obj in data]
