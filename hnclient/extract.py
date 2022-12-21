@@ -3,7 +3,7 @@ from hnclient.request import HTTPClient
 
 from typing import List, Dict
 
-class ShowHN(Manager):
+class HackerNewsClient(Manager):
     def __init__(
         self, 
         descending: bool = False, 
