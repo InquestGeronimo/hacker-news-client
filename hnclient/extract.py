@@ -1,8 +1,7 @@
-from showhn.utils import Manager
-from showhn.request import HTTPClient
+from hnclient.utils import Manager
+from hnclient.request import HTTPClient
 
 from typing import List, Dict
-import pprint
 
 class ShowHN(Manager):
     def __init__(

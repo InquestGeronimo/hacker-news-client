@@ -1,5 +1,5 @@
 from requests_cache import CachedSession
-from showhn.utils import Manager
+from hnclient.utils import Manager
 
 session = CachedSession(
     cache_name=Manager.cache_name, 
