@@ -1,15 +1,17 @@
 from requests_cache import CachedSession
 from hnclient.utils import Manager
 
+from typing import List, Dict
+
 session = CachedSession(
     cache_name=Manager.cache_name, 
     backend=Manager.backend, 
     use_cache_dir=Manager.use_cache_dir
 )
 
-class HTTPClient:
+class HTTPClient(CachedSession):
 
-    def __init__(self, url, disable_cache=False):
+    def __init__(self, url: str, disable_cache: bool=False):
         self.url = url
         self.disable_cache = disable_cache
 
