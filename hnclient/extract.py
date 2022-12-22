@@ -8,16 +8,14 @@ class HackerNewsClient(Manager):
 
     def __init__(
         self, 
-        descending: bool = False, 
         disable_cache: bool = False,
     ):
 
         super().__init__()
-        self.descending = descending
         self.disable_cache = disable_cache
         
         
-    def get_stories(self, story: str="top") -> List[Dict]:
+    def get_stories(self, story: str="top", descending: bool=False) -> List[Dict]:
 
         uids = HTTPClient(post_ids_url(story), self.disable_cache)()
 
@@ -43,7 +41,7 @@ class HackerNewsClient(Manager):
                 continue
 
         # sorts dict by "score"
-        return sorted(payload, key=lambda d: d["score"], reverse=self.descending)
+        return sorted(payload, key=lambda d: d["score"], reverse=descending)
 
     def get_item(self, item: str, data: List[Dict]) -> List:
 
