@@ -11,7 +11,7 @@ The client comes with a request-cache for each API call so entire data dumps can
 pip install hacker-news-client
 ```
 
-## :rocket: Getting Started
+## :rocket:Getting Started
 <br>
 
 First step is to initialize `HackerNewsClient`:
