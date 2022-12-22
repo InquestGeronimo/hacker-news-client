@@ -54,7 +54,7 @@ The program above will print out a list of dictionaries where each dictionary ho
 ## Selecting Objects <img align="center" width="23" height="23" src="https://media.giphy.com/media/hRYXatty4dJks/giphy.gif">
 <br>
 
-1. Collect a list of a specific metadata object. The available list of objects can be found in the printed dictionary above. For the example below, we are obtaining a list of all urls pertaining from the **Top** stories:
+1. Collect a list of a specific metadata object. The available list of objects can be found in the printed dictionary above. For the example below, we are obtaining a list of all urls pertaining to the **Top** stories:
 
 ```py
 from hnclient import HackerNewsClient
