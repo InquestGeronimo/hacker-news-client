@@ -21,7 +21,6 @@ from hnclient import HackerNewsClient
 
 client = HackerNewsClient()
 ```
-### Calling the API
 
 To fetch data about a specific section of Hacker News, pass in the section to the `getstories` method. The default story is `Top`, for the Top stories on Hacker News. For other sections pass their name into the `story` argument: `Best`, `Ask`, `Show`. 
 
@@ -38,13 +37,13 @@ print(data)
 
 The output will be a list of dictionaries.
 
-Each dictionary is the metadata for an individual story:
+Each dictionary is the metadata for an individual story encompassing :
 ```
 {'author': 'tristanho',
-  'comments': 156,
-  'id': 34006202,
-  'score': 318,
-  'text': 'Hey HN, cofounder of Readwise here. We&#x27;ve been working on this '
+ 'comments': 156,
+ 'id': 34006202,
+ 'score': 318,
+ 'text': 'Hey HN, cofounder of Readwise here. We&#x27;ve been working on this '
           'cross-platform reader app for about 2 years, excited to finally '
           'share it in public beta.<p>Probably the most notable thing that '
           'makes Reader unique is that it supports almost any content type you '
