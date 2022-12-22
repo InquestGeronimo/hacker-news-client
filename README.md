@@ -22,11 +22,11 @@ from hnclient import HackerNewsClient
 client = HackerNewsClient()
 ```
 
-To fetch data about a specific section of Hacker News, pass in the section to the **getstories** method. 
+To fetch data about a specific section of Hacker News, pass in the section using the **getstories** method. 
 
-- :bulb: For selecting a specific section from HN, pass their name into the `story` argument: `Top`, `Best`, `Ask`, `Show`. 
+- :bulb: For selecting a specific section from HN, pass their name into the **story** argument: `Top`, `Best`, `Ask`, `Show`. 
 
-- :bulb: You can also alter the sorting order of the stories' score with the `descending` argument.
+- :bulb: You can also alter the sorting order all the storries by their Hacker News score with the `descending` argument.
 
 ```py
 from hnclient import HackerNewsClient
@@ -36,7 +36,7 @@ client = HackerNewsClient()
 data = client.get_stories(story="top", descending=False)
 print(data)
 ```
-The program above will print out a list of dictionaries where each dictionary is the metadata values for an individual story:
+The program above will print out a list of dictionaries where each dictionary is the metadata values for an individual story:  
 ```
 {'author': 'tristanho',
  'comments': 156,

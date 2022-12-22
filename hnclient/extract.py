@@ -1,8 +1,10 @@
+import json
+import random
+from typing import List, Dict
+
 from hnclient.utils import Manager, post_ids_url, get_post
 from hnclient.request import HTTPClient
 
-from typing import List, Dict
-import json
 
 class HackerNewsClient(Manager):
 
@@ -46,3 +48,8 @@ class HackerNewsClient(Manager):
     def get_item(self, item: str, data: List[Dict]) -> List:
 
         return [obj[item] for obj in data]
+
+    def get_random_story(self, data: List[Dict]) -> Dict:
+
+        return random.choice(data)
+
