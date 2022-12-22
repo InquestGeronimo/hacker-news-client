@@ -8,14 +8,10 @@ from hnclient.request import HTTPClient
 
 class HackerNewsClient(Manager):
 
-    def __init__(
-        self, 
-        disable_cache: bool = False,
-    ):
+    def __init__(self, disable_cache: bool = False):
 
         super().__init__()
         self.disable_cache = disable_cache
-        
         
     def get_stories(self, story: str="top", descending: bool=False) -> List[Dict]:
 

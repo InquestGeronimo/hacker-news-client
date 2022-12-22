@@ -11,7 +11,7 @@ The client comes with a request-cache for each API call so entire data dumps can
 pip install hacker-news-client
 ```
 
-## Getting Started <img align="center" width="23" height="23" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
+## Quick Start <img align="center" width="23" height="23" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
 <br>
 
 First step is to initialize `HackerNewsClient`:
@@ -36,15 +36,40 @@ client = HackerNewsClient()
 data = client.get_stories(story="top", descending=False)
 print(data)
 ```
-The program above will print out a list of dictionaries where each dictionary is the metadata values for an individual story: :point_down:
-```
+The program above will print out a list of dictionaries where each dictionary holds the following metadata keys per story: :point_down:
+
+```text
 {'author': 'tristanho',
  'comments': 156,
  'id': 34006202,
  'score': 318,
  'text': 'Hey HN, cofounder of Readwise here. We&#x27;ve been working on this '
-          'cross-platform reader app for about 2 years, excited to finally' [truncated],
+          'cross-platform reader app for about 2 years, excited to finally...'   ,
  'time': 1671140643,
  'title': 'Show HN: Readwise Reader, an all-in-one reading app',
  'url': 'https://readwise.io/read'}
-  ```
+
+```
+
+## Selecting Objects <img align="center" width="23" height="23" src="https://media.giphy.com/media/hRYXatty4dJks/giphy.gif">
+
+```py
+from hnclient import HackerNewsClient
+
+api = HackerNewsClient(disable_cache=False)
+
+data = api.get_stories(story="top", descending=False)
+```
+
+Select a specific object from the :
+
+```py
+random = api.get_random_story(data)
+```
+
+
+Select a random object from the client:
+
+```py
+random = api.get_random_story(data)
+```
