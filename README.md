@@ -26,7 +26,7 @@ To fetch data about a specific section of Hacker News, pass in the section using
 
 - :bulb: For selecting a specific section from HN, pass their name into the **story** argument: `Top`, `Best`, `Ask`, `Show`. 
 
-- :bulb: You can also alter the sorting order all the storries by their Hacker News score with the `descending` argument.
+- :bulb: You can also set the sorting order for all stories by their Hacker News score with the `descending` argument. Default is `False`.
 
 ```py
 from hnclient import HackerNewsClient
@@ -52,24 +52,37 @@ The program above will print out a list of dictionaries where each dictionary ho
 ```
 
 ## Selecting Objects <img align="center" width="23" height="23" src="https://media.giphy.com/media/hRYXatty4dJks/giphy.gif">
+<br>
+
+1. Collect a list of a specific metadata object. The available list of objects can be found in the printed dictionary above. For the example below, we are obtaining a list of all urls pertaining from the **Top** stories:
 
 ```py
 from hnclient import HackerNewsClient
 
-api = HackerNewsClient(disable_cache=False)
+api = HackerNewsClient()
+client = api.get_stories(story="top")
 
-data = api.get_stories(story="top", descending=False)
+urls = client.get_item("url", data)
+print(urls)
+```
+&emsp; outputs:
+
+```
+    ['https://github.com/ifeelalright1970/ytmp',
+     'https://mimosa.so/',
+     'https://www.screen.studio/',
+     'https://www.pinetarpoker.com',
+    ...]
 ```
 
-Select a specific object from the :
+2. Select a random story from the client payload. For the example below, we are obtaiing a story pertaining from the **Best** stories.
 
 ```py
-random = api.get_random_story(data)
-```
+from hnclient import HackerNewsClient
 
+api = HackerNewsClient()
+client = api.get_stories(story="best")
 
-Select a random object from the client:
-
-```py
-random = api.get_random_story(data)
+random = client.get_random_story(data)
+print(random)
 ```
