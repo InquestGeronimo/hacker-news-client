@@ -31,7 +31,7 @@ To fetch data about a specific section of Hacker News, pass in the section using
 ```py
 from hnclient import HackerNewsClient
 
-client = HackerNewsClient()
+client = HackerNewsClient(disable_cache=False)
 
 data = client.get_stories(story="top", descending=False)
 print(data)
@@ -60,7 +60,7 @@ The program above will print out a list of dictionaries where each dictionary ho
 from hnclient import HackerNewsClient
 
 api = HackerNewsClient()
-client = api.get_stories(story="top")
+client = api.get_stories("top")
 
 urls = client.get_item("url", data)
 print(urls)
@@ -81,7 +81,7 @@ print(urls)
 from hnclient import HackerNewsClient
 
 api = HackerNewsClient()
-client = api.get_stories(story="best")
+client = api.get_stories("best")
 
 random = client.get_random_story(data)
 print(random)
