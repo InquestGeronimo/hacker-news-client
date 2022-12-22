@@ -4,14 +4,14 @@ Hacker News Client is a simple Python client to interact with the official Hacke
 
 The client comes with a request-cache for each API call so entire data dumps can be handled without making subsequent calls. This will save you valuable time when data wrangling.
 
-## :computer: Install
+## Install :computer:
 <br>
 
 ```
 pip install hacker-news-client
 ```
 
-## :rocket:Getting Started
+##  Getting Started :rocket:
 <br>
 
 First step is to initialize `HackerNewsClient`:
