@@ -4,17 +4,17 @@ Hacker News Client is a simple Python client to interact with the official Hacke
 
 The client comes with a request-cache for each API call so entire data dumps can be handled without making subsequent calls. This will save you valuable time when data wrangling.
 
-## Install
+## Install :computer:
 <br>
 
 ```
 pip install hacker-news-client
 ```
 
-## Getting Started
+## Getting Started :rocket:
 <br>
 
-The base object for interacting with the api is `HackerNewsClient`:
+First step is to initialize `HackerNewsClient`:
 
 ```py
 from hnclient import HackerNewsClient
@@ -22,9 +22,11 @@ from hnclient import HackerNewsClient
 client = HackerNewsClient()
 ```
 
-To fetch data about a specific section of Hacker News, pass in the section to the `getstories` method. The default story is `Top`, for the Top stories on Hacker News. For other sections pass their name into the `story` argument: `Best`, `Ask`, `Show`. 
+To fetch data about a specific section of Hacker News, pass in the section to the **getstories** method. 
 
-In addition, you can also alter the sorting order of the stories' score with the `descending` argument.
+- :bulb: For selecting a specific section from HN, pass their name into the `story` argument: `Top`, `Best`, `Ask`, `Show`. 
+
+- :bulb: You can also alter the sorting order of the stories' score with the `descending` argument.
 
 ```py
 from hnclient import HackerNewsClient
@@ -34,10 +36,7 @@ client = HackerNewsClient()
 data = client.get_stories(story="top", descending=False)
 print(data)
 ```
-
-The output will be a list of dictionaries.
-
-Each dictionary is the metadata for an individual story encompassing :
+The program above will print out a list of dictionaries where each dictionary is the metadata values for an individual story:
 ```
 {'author': 'tristanho',
  'comments': 156,
