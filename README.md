@@ -14,29 +14,29 @@ pip install hacker-news-client
 ## Quick Start <img align="center" width="23" height="23" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
 <br>
 
-First step is to initialize `HackerNewsClient`:
+First step is to initialize `HackerNewsClient` prior to making an API request. By default, client requests are cached. If you wish to disable cache, set the `disable_cache` argument to **True**:
 
 ```py
 from hnclient import HackerNewsClient
 
-client = HackerNewsClient()
+client = HackerNewsClient(disable_cache=True)
 ```
 
-To fetch data about a specific section of Hacker News, pass in the section using the **getstories** method. 
+To fetch stories from Hacker News, begin by using the **getstories** method. 
 
-- :bulb: For selecting a specific section from HN, pass their name into the **story** argument: `Top`, `Best`, `Ask`, `Show`. 
+- :bulb: You can select specific story section by passing its name into the **story** argument. Here are few  examples: `Top`, `Best`, `Ask`, `Show`. 
 
 - :bulb: You can also set the sorting order for all stories by their Hacker News score with the `descending` argument. Default is `False`.
 
 ```py
 from hnclient import HackerNewsClient
 
-client = HackerNewsClient(disable_cache=False)
+client = HackerNewsClient()
 
-data = client.get_stories(story="top", descending=False)
+data = client.get_stories("top", descending=False)
 print(data)
 ```
-The program above will print out a list of dictionaries where each dictionary holds the following metadata keys per story: :point_down:
+The program above will print out a list of dictionaries where each dictionary holds the following metadata per story: :point_down:
 
 ```text
 {'author': 'tristanho',
