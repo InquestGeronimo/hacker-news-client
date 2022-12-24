@@ -15,6 +15,7 @@ class HackerNewsClient(HTTPHandler):
         payload = []
         for uid in self.call_api(self.story_ids(story), self.disable_cache):
             data = self.call_api(self.get_story(uid), self.disable_cache)
+      
             try:
                 payload.append(self.payload_dict(uid, data))
                 
