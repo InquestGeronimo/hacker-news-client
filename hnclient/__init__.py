@@ -1,4 +1,4 @@
-from .extract import HackerNewsClient
+from .main import HackerNewsClient
 
 
 

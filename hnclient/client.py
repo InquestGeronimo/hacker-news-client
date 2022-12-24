@@ -9,9 +9,9 @@ session = CachedSession(
     use_cache_dir=Manager.use_cache_dir
 )
 
-class HTTPClient(CachedSession):
+class HTTPClient():
 
-    def __init__(self, url: str, disable_cache: bool=False):
+    def __init__(self, url: str, disable_cache: bool):
         self.url = url
         self.disable_cache = disable_cache
 

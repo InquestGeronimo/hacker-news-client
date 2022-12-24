@@ -1,3 +1,5 @@
+from typing import Dict
+
 class Manager:
 
     # cache settings
@@ -5,10 +7,23 @@ class Manager:
     backend="filesystem"
     use_cache_dir=True
 
-def post_ids_url(story: str) -> str:
-    
-    return f"https://hacker-news.firebaseio.com/v0/{story}stories.json"
+    def story_ids(self, story: str) -> str:
+        
+        return f"https://hacker-news.firebaseio.com/v0/{story}stories.json"
 
-def get_post(uid: str) -> str:
+    def get_story(self, uid: str) -> str:
 
-    return f"https://hacker-news.firebaseio.com/v0/item/{uid}.json"
+        return f"https://hacker-news.firebaseio.com/v0/item/{uid}.json"
+
+    def payload_dict(self, uid: str, data: Dict) -> Dict:
+
+        return {
+            "id":       uid,
+            "title":    data["title"],
+            "text":     data["text"],
+            "url":      data["url"],
+            "comments": data["descendants"],
+            "score":    data["score"],
+            "time":     data["time"],
+            "author":   data["by"]
+        }
