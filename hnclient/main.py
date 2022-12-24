@@ -6,7 +6,7 @@ from hnclient.set_api import HTTPHandler
 
 class HackerNewsClient(HTTPHandler):
 
-    def __init__(self, disable_cache: bool = False):
+    def __init__(self, disable_cache: bool=False):
 
         self.disable_cache = disable_cache
 
@@ -31,4 +31,3 @@ class HackerNewsClient(HTTPHandler):
     def get_random_story(self, data: List[Dict]) -> Dict:
 
         return random.choice(data)
-

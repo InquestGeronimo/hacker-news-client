@@ -11,6 +11,13 @@ session = CachedSession(
 
 class HTTPClient():
 
+    """
+    Client object for making requests to the Hacker News Firebase API.
+
+    :param url: url used to make http request
+    :param disable_cache: setting for turning cache on and off
+    """
+
     def __init__(self, url: str, disable_cache: bool):
         self.url = url
         self.disable_cache = disable_cache
