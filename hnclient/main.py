@@ -22,8 +22,7 @@ class HackerNewsClient(HTTPHandler):
             except KeyError:
                 continue
 
-        # sorts dict by "score"
-        return sorted(payload, key=lambda d: d["score"], reverse=descending)
+        return self.sort_score(payload, descending)
 
     def get_item(self, item: str, data: List[Dict]) -> List:
 

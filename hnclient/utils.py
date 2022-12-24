@@ -27,3 +27,7 @@ class Manager:
             "time":     data["time"],
             "author":   data["by"]
         }
+
+    def sort_score(self, payload, descending):
+
+        return sorted(payload, key=lambda d: d["score"], reverse=descending)
