@@ -1,12 +1,33 @@
-from setuptools import setup
+from setuptools import setup, find_packages
+import codecs
+import os
 
+here = os.path.abspath(os.path.dirname(__file__))
+
+with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
+    long_description = "\n" + fh.read()
+
+VERSION = "0.0.1"
+DESCRIPTION = "Python client for Hacker News API with cached API calls built in."
+LONG_DESCRIPTION = "The Hacker News Client is a Python-based tool designed to seamlessly engage with the official Hacker News Firebase API. This client incorporates a built-in request-cache mechanism for each API call, allowing for the efficient handling of complete data dumps without the need for redundant subsequent calls. This feature significantly optimizes your data wrangling processes, saving you time and resources."
+
+# Setting up
 setup(
-    name="showHN",
-    version="0.1",
-    description="API for fetching 'Show' posts on Hacker News",
-    url="https://github.com/InquestGeronimo/showHN",
-    author="zeroshot",
-    license="apache 2",
-    packages=["showhn"],
-    zip_safe=False
+    name="hacker-news-client",
+    version=VERSION,
+    author="InquestGeronimmo",
+    author_email="rcostanl@gmail.com",
+    description=DESCRIPTION,
+    long_description_content_type="text/markdown",
+    long_description=long_description,
+    package_dir={"": "src"},
+    packages=find_packages("src"),
+    install_requires=["requests-cache>=1.1.1"],
+    keywords=["python", "hacker-news", "api"],
+    classifiers=[
+        "Development Status :: Stable",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3",
+        "Operating System :: Unix",
+    ]
 )

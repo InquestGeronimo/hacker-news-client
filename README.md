@@ -1,8 +1,6 @@
 # Hacker News Client  <img align="right" width="75" height="75" src="./img/hackernews-logo.png">
 
-Hacker News Client is a simple Python client to interact with the official Hacker News Firebase API.
-
-The client comes with a request-cache for each API call so entire data dumps can be handled without making subsequent calls. This will save you valuable time when data wrangling.
+The Hacker News Client is a Python-based tool designed to seamlessly engage with the official Hacker News Firebase API. This client incorporates a built-in request-cache mechanism for each API call, allowing for the efficient handling of complete data dumps without the need for redundant subsequent calls. This feature significantly optimizes your data wrangling processes, saving you time and resources.
 
 ## Install <img align="center" width="23" height="23" src="https://media.giphy.com/media/sULKEgDMX8LcI/giphy.gif">
 <br>
@@ -14,12 +12,12 @@ pip install hacker-news-client
 ## Quick Start <img align="center" width="23" height="23" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
 <br>
 
-First step is to initialize `HackerNewsClient` prior to making an API request. By default, client requests are cached. If you wish to disable cache, set the `disable_cache` argument to **True**:
+First step is to initialize `HackerNewsClient` prior to making an API request. By default, client requests are cached. To disable cache, set the `disable_cache` argument to **True**:
 
 ```py
 from hnclient import HackerNewsClient
 
-client = HackerNewsClient(disable_cache=True)
+client = HackerNewsClient()
 ```
 
 To fetch stories from Hacker News, begin by using the **getstories** method. 
@@ -51,16 +49,16 @@ The program above will print out a list of dictionaries where each dictionary ho
 
 ```
 
-## Selecting Objects <img align="center" width="23" height="23" src="https://media.giphy.com/media/hRYXatty4dJks/giphy.gif">
+## Data Wrangling <img align="center" width="23" height="23" src="https://media.giphy.com/media/hRYXatty4dJks/giphy.gif">
 <br>
 
-1. Collect a list of a specific metadata object. The available list of objects can be found in the printed dictionary above. For the example below, we are obtaining a list of all urls pertaining to the **Top** stories:
+1. Collect a list of a specific metadata object. The available list of objects can be found in the printed dictionary above. For the example below, we are obtaining a list of all URLS pertaining to the **Top** stories:
 
 ```py
 from hnclient import HackerNewsClient
 
-api = HackerNewsClient()
-client = api.get_stories("top")
+client = HackerNewsClient()
+data = client.get_stories("top")
 
 urls = client.get_item("url", data)
 print(urls)
@@ -80,8 +78,8 @@ print(urls)
 ```py
 from hnclient import HackerNewsClient
 
-api = HackerNewsClient()
-client = api.get_stories("best")
+client = HackerNewsClient()
+data = client.get_stories("best")
 
 random = client.get_random_story(data)
 print(random)
