@@ -13,7 +13,7 @@ LONG_DESCRIPTION = "The Hacker News Client is a Python-based tool designed to se
 
 # Setting up
 setup(
-    name="hacker-news-client",
+    name="hnclient",
     version=VERSION,
     author="InquestGeronimmo",
     author_email="rcostanl@gmail.com",

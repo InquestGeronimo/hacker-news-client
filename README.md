@@ -6,7 +6,7 @@ The Hacker News Client is a Python-based tool designed to seamlessly engage with
 <br>
 
 ```
-pip install hacker-news-client
+pip install hnclient
 ```
 
 ## Quick Start <img align="center" width="23" height="23" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
