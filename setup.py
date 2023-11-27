@@ -22,10 +22,10 @@ setup(
     long_description=long_description,
     package_dir={"": "src"},
     packages=find_packages("src"),
-    install_requires=["requests>=2.31.0", "pandas>=2.1.3", "yt_dlp>=2023.11.16"],
+    install_requires=["requests-cache>=1.1.1"],
     keywords=["python", "hacker-news", "api"],
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: Stable",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
