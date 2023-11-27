@@ -25,7 +25,7 @@ setup(
     install_requires=["requests-cache>=1.1.1"],
     keywords=["python", "hacker-news", "api"],
     classifiers=[
-        "Development Status :: Stable",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
