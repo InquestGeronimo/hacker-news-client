@@ -7,13 +7,13 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 DESCRIPTION = "Python client for Hacker News API with cached API calls built in."
 LONG_DESCRIPTION = "The Hacker News Client is a Python-based tool designed to seamlessly engage with the official Hacker News Firebase API. This client incorporates a built-in request-cache mechanism for each API call, allowing for the efficient handling of complete data dumps without the need for redundant subsequent calls. This feature significantly optimizes your data wrangling processes, saving you time and resources."
 
 # Setting up
 setup(
-    name="hacker-news-client",
+    name="hnclient",
     version=VERSION,
     author="InquestGeronimmo",
     author_email="rcostanl@gmail.com",
