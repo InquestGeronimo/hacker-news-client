@@ -73,7 +73,7 @@ print(urls)
     ...]
 ```
 
-2. Select a random story from the client payload. For the example below, we are obtaiing a story pertaining from the **Best** stories.
+2. Select a random story from the client payload. For the example below, we are obtaining a story pertaining from the **Best** stories.
 
 ```py
 from hnclient import HackerNewsClient
