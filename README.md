@@ -2,14 +2,14 @@
 
 The Hacker News Client is a Python-based tool designed to seamlessly engage with the official Hacker News Firebase API. This client incorporates a built-in request-cache mechanism for each API call, allowing for the efficient handling of complete data dumps without the need for redundant subsequent calls. This feature significantly optimizes your data wrangling processes, saving you time and resources.
 
-## Install <img align="center" width="23" height="23" src="https://media.giphy.com/media/sULKEgDMX8LcI/giphy.gif">
+## Install <img align="center" width="23" height="25" src="https://media.giphy.com/media/sULKEgDMX8LcI/giphy.gif">
 <br>
 
 ```
 pip install hnclient
 ```
 
-## Quick Start <img align="center" width="23" height="23" src="https://media.giphy.com/media/PeaNPlyOVPNMHjqTm7/giphy.gif">
+## Quick Start <img align="center" width="23" height="25" src="https://media.giphy.com/media/PeaNPlyOVPNMHjqTm7/giphy.gif">
 <br>
 
 First step is to initialize `HackerNewsClient` prior to making an API request. By default, client requests are cached. To disable cache, set the `disable_cache` argument to **True**:
@@ -49,7 +49,7 @@ The program above will print out a list of dictionaries where each dictionary ho
 
 ```
 
-## Data Wrangling <img align="center" width="23" height="23" src="https://media.giphy.com/media/fmkYSBlJt3XjNF6p9c/giphy.gif">
+## Data Wrangling <img align="center" width="23" height="25" src="https://media.giphy.com/media/fmkYSBlJt3XjNF6p9c/giphy.gif">
 <br>
 
 Collect a list of a specific metadata object. The available list of objects can be found in the printed dictionary above. For the example below, we are obtaining a list of all URLS pertaining to the **Top** stories:
