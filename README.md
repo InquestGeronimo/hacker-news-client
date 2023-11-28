@@ -9,7 +9,7 @@ The Hacker News Client is a Python-based tool designed to seamlessly engage with
 pip install hnclient
 ```
 
-## Quick Start <img align="center" width="23" height="23" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
+## Quick Start <img align="center" width="23" height="23" src="https://media.giphy.com/media/PeaNPlyOVPNMHjqTm7/giphy.gif">
 <br>
 
 First step is to initialize `HackerNewsClient` prior to making an API request. By default, client requests are cached. To disable cache, set the `disable_cache` argument to **True**:
@@ -49,10 +49,10 @@ The program above will print out a list of dictionaries where each dictionary ho
 
 ```
 
-## Data Wrangling <img align="center" width="23" height="23" src="https://media.giphy.com/media/hRYXatty4dJks/giphy.gif">
+## Data Wrangling <img align="center" width="23" height="23" src="https://media.giphy.com/media/fmkYSBlJt3XjNF6p9c/giphy.gif">
 <br>
 
-1. Collect a list of a specific metadata object. The available list of objects can be found in the printed dictionary above. For the example below, we are obtaining a list of all URLS pertaining to the **Top** stories:
+Collect a list of a specific metadata object. The available list of objects can be found in the printed dictionary above. For the example below, we are obtaining a list of all URLS pertaining to the **Top** stories:
 
 ```py
 from hnclient import HackerNewsClient
@@ -63,7 +63,7 @@ data = client.get_stories("top")
 urls = client.get_item("url", data)
 print(urls)
 ```
-&emsp; outputs:
+&emsp; output:
 
 ```
     ['https://github.com/ifeelalright1970/ytmp',
@@ -73,7 +73,7 @@ print(urls)
     ...]
 ```
 
-2. Select a random story from the client payload. For the example below, we are obtaining a story pertaining from the **Best** stories.
+Select a random story from the client payload. For the example below, we are obtaining a story pertaining from the **Best** stories.
 
 ```py
 from hnclient import HackerNewsClient
